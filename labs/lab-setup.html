@@ -1403,7 +1403,7 @@ libraries, tools, and applications cleanly and easily.</p>
 <li><p>Copy and paste (without the <code>$</code>) the following into
 the terminal prompt:</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ /bin/bash <span class="at">-c</span> &quot;$(curl <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span></code></pre></div>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span></code></pre></div>
 <p>Agree as necessary to continue the installation until the script
 finishes. (Allow homebrew to be install to the default path
 prefixes)</p></li>
@@ -1411,25 +1411,25 @@ prefixes)</p></li>
 Terminal window. Then add the <code>ucd-eec172</code> <a
 href="https://docs.brew.sh/Taps">tap</a>:</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> tap rchtsang/ucd<span class="at">-eec172</span></span></code></pre></div></li>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> tap rchtsang/ucd-eec172</span></code></pre></div></li>
 </ol>
 <h2 id="install-all-dependencies">Install All Dependencies</h2>
 <ol type="1">
 <li><p><strong><code>conda</code>/<code>mamba</code></strong>. Reopen
 your Terminal after these commands complete.</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install <span class="at">--cask</span> mambaforge</span>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install --cask mambaforge</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> init &quot;$(basename &quot;${SHELL}&quot;)&quot;</span></code></pre></div></li>
 <li><p><strong>Code Composer Studio and TI SysConfig</strong>. <em>This
 requires that you have added <code>rchtsang/ucd-eec172</code> as a Tap.
 Installs both to /Applications/TI/</em></p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install <span class="at">--cask</span> ucd<span class="at">-eec172-ccs</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install <span class="at">--cask</span> ucd<span class="at">-eec172-sysconfig</span></span></code></pre></div></li>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install --cask ucd-eec172-ccs</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install --cask ucd-eec172-sysconfig</span></code></pre></div></li>
 <li><p><strong>CC3200 Support Files</strong>. <em>Install sdk and
 supportpack to <code>/Applications/TI/lib</code></em>.</p>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install <span class="at">--cask</span> ucd<span class="at">-eec172-cc3200-support</span></span></code></pre></div></li>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install --cask ucd-eec172-cc3200-support</span></code></pre></div></li>
 <li><p><strong>cc3200tool</strong>. This one is a bit more involved. In
 Terminal, navigate to your desired install directory, and run the
 following commands.</p>
@@ -1438,10 +1438,10 @@ class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb7-
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># brew install git</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$ git</span> clone https://github.com/rchtsang/cc3200tool.git</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cd</span> cc3200tool</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create <span class="at">-n</span> cc3200 <span class="at">-f</span> environment.yml <span class="at">-y</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create -n cc3200 -f environment.yml -y</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> activate cc3200</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">$ pip</span> install <span class="at">-e</span> .</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cc3200tool</span> <span class="at">-h</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">$ pip</span> install -e .</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cc3200tool</span> -h</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># conda deactivate # to deactivate the virtual environment</span></span></code></pre></div>
 <p>If the <code>cc3200tool</code> is installed successfully, you should
 see a help string get printed to the output.</p></li>
