@@ -1415,11 +1415,12 @@ class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb3-
 </ol>
 <h2 id="install-all-dependencies">Install All Dependencies</h2>
 <ol type="1">
-<li><p><strong><code>conda</code>/<code>mamba</code></strong>. Reopen
-your Terminal after these commands complete.</p>
+<li><p><strong><code>conda</code>/<code>mamba</code></strong>.</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> mambaforge</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> init &quot;$(basename &quot;${SHELL}&quot;)&quot;</span></code></pre></div></li>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> init &quot;$(basename &quot;${SHELL}&quot;)&quot;</span></code></pre></div>
+<p><strong>Close and reopen your Terminal after these commands
+complete.</strong></p></li>
 <li><p><strong>Code Composer Studio and TI SysConfig</strong>. <em>This
 requires that you have added <code>rchtsang/ucd-eec172</code> as a Tap.
 Installs both to /Applications/TI/</em></p>
@@ -1438,7 +1439,7 @@ class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb7-
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># brew install git</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$ git</span> clone https://github.com/rchtsang/cc3200tool.git</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cd</span> cc3200tool</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create<span class="at"> -n</span> cc3200<span class="at"> -f</span> environment.yml<span class="at"> -y</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create<span class="at"> -n</span> cc3200<span class="at"> -f</span> environment.yml</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> activate cc3200</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">$ pip</span> install<span class="at"> -e</span> .</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cc3200tool</span><span class="at"> -h</span></span>
