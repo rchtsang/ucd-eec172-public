@@ -1207,6 +1207,8 @@ id="toc-installing-ti-sysconfig">Installing TI SysConfig</a></li>
 id="toc-installing-uniflash-v341">Installing UniFlash v3.4.1</a></li>
 <li><a href="#installing-putty" id="toc-installing-putty">Installing
 PuTTY</a></li>
+<li><a href="#installing-saleae-logic-2"
+id="toc-installing-saleae-logic-2">Installing Saleae Logic 2</a></li>
 </ul></li>
 <li><a href="#macos-catalina-or-later"
 id="toc-macos-catalina-or-later">MacOS Catalina or Later</a>
@@ -1257,6 +1259,15 @@ prefer. The lab machines will have PuTTY (available at <a
 href="http://www.putty.org/">http://www.putty.org/</a>) and Tera Term
 (available from <a
 href="https://ttssh2.osdn.jp/index.html.en">https://ttssh2.osdn.jp/index.html.en</a>).</p>
+</blockquote></li>
+<li><p><strong>Saleae Logic 2</strong> (Optional)</p>
+<p><a
+href="https://www.saleae.com/downloads/">https://www.saleae.com/downloads/</a></p>
+<blockquote>
+<p>This is software to use the Saleae Logic Analyzer. Between you and
+your lab partner, only one of you will need this software if you wish to
+use the logic analyzer for digital signal debugging, as you will be
+sharing one logic analyzer anyways.</p>
 </blockquote></li>
 </ol>
 <h1 id="windows-1011">Windows 10/11</h1>
@@ -1379,6 +1390,12 @@ Download Page</a> and download the Installer for your machine's
 architecture. Then run it and follow the prompts. (You can use
 defaults)</p></li>
 </ol>
+<h2 id="installing-saleae-logic-2">Installing Saleae Logic 2</h2>
+<ol type="1">
+<li>Follow the Installation instructions on Saleae's Support website,
+found <a
+href="https://support.saleae.com/logic-software/sw-installation#windows-instructions">here</a></li>
+</ol>
 <h1 id="macos-catalina-or-later">MacOS Catalina or Later</h1>
 <p>(Tested on Sonoma, Apple M1 Pro)</p>
 <p>The labs can be done on macOS, but will require extensive use of the
@@ -1435,17 +1452,22 @@ class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb6-
 Terminal, navigate to your desired install directory, and run the
 following commands.</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># uncomment and run if you do not have git</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># brew install git</span></span>
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do"># uncomment and run if you do not have git</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do"># brew install git</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$ git</span> clone https://github.com/rchtsang/cc3200tool.git</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cd</span> cc3200tool</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create<span class="at"> -n</span> cc3200<span class="at"> -f</span> environment.yml</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> activate cc3200</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">$ pip</span> install<span class="at"> -e</span> .</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cc3200tool</span><span class="at"> -h</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># conda deactivate # to deactivate the virtual environment</span></span></code></pre></div>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do"># conda deactivate # to deactivate the virtual environment</span></span></code></pre></div>
 <p>If the <code>cc3200tool</code> is installed successfully, you should
 see a help string get printed to the output.</p></li>
+<li><p><strong>Saleae Logic 2</strong>.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> saleae-logic</span></code></pre></div>
+<p>Note any caveats and follow any additional instructions if brew
+prompts you.</p></li>
 </ol>
 </article>
 </html>
