@@ -1386,6 +1386,12 @@ depends upon a number of factors, such as hardware organization and
 memory map, the presence of an operating system, and the underlying
 processor architecture; however, much of this is out of scope for this
 course.</p>
+<p>For this class, since we are using the CC3200, we can only flash
+using TI's UniFlash tool, as CCS will only load the program into RAM for
+debugging. To program either RAM or Flash, the CC3200 Launchpad must
+have the SOP2 Jumper on before it is connected to the computer. If the
+SOP2 Jumper is not connected, the CC3200 will automatically try to boot
+from flash memory before the computer can connect to it.</p>
 <hr />
 <h2 id="checkpoint-assessment">Checkpoint Assessment</h2>
 <p>The associated checkpoint assessment is meant to affirm your
