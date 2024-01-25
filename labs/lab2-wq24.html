@@ -1477,6 +1477,12 @@ OLED independently from the CC3200 LaunchPad.</p>
 because we plan multiple SPI devices on the CC3200’s general-purpose SPI
 port.</p>
 </blockquote>
+<blockquote>
+<p><strong>Note:</strong> You should be using the TI SysConfig Tool to
+enable the SPI, UART, and GPIO peripherals. Remember to uncheck CTS and
+RTS under the UART module, and configure the GPIO input/output setting.
+You will not need Output OD (open drain)</p>
+</blockquote>
 <table align="center">
 <colgroup>
 <col style="width: 45%" />
