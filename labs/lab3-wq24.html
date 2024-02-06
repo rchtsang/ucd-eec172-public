@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>EEC172 Software Setup</title>
+  <title>Lab 3 - IR Remote Control Texting Over a UART Link</title>
   <!-- <link rel="stylesheet" href="assets/github-markdown-light.css" /> -->
   <style>
     /*github markdown light*/
@@ -1093,70 +1093,6 @@
 
     /*end github markdown light*/
 
-        /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     
     .markdown-body {
         box-sizing: border-box;
@@ -1192,285 +1128,519 @@
 </head>
 <article class="markdown-body">
 <header id="title-block-header">
-<h1 class="title">EEC172 Software Setup</h1>
+<h1 class="title">Lab 3 - IR Remote Control Texting Over a UART
+Link</h1>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#requirements" id="toc-requirements">Requirements</a></li>
-<li><a href="#windows-1011" id="toc-windows-1011">Windows 10/11</a>
+<li><a href="#overview" id="toc-overview">Overview</a></li>
+<li><a href="#learning-objectives" id="toc-learning-objectives">Learning
+Objectives</a></li>
+<li><a href="#requirements-and-dependencies"
+id="toc-requirements-and-dependencies">Requirements and Dependencies</a>
 <ul>
-<li><a href="#installing-ccs" id="toc-installing-ccs">Installing
-CCS</a></li>
-<li><a href="#installing-cc3200-support-files"
-id="toc-installing-cc3200-support-files">Installing CC3200 Support
-Files</a></li>
-<li><a href="#installing-ti-sysconfig"
-id="toc-installing-ti-sysconfig">Installing TI SysConfig</a></li>
-<li><a href="#installing-uniflash-v341"
-id="toc-installing-uniflash-v341">Installing UniFlash v3.4.1</a></li>
-<li><a href="#installing-putty" id="toc-installing-putty">Installing
-PuTTY</a></li>
-<li><a href="#installing-saleae-logic-2"
-id="toc-installing-saleae-logic-2">Installing Saleae Logic 2</a></li>
+<li><a href="#hardware-requirements"
+id="toc-hardware-requirements">Hardware Requirements</a></li>
+<li><a href="#lab-datasheets" id="toc-lab-datasheets">Lab
+Datasheets</a></li>
 </ul></li>
-<li><a href="#macos-catalina-or-later"
-id="toc-macos-catalina-or-later">MacOS Catalina or Later</a>
+<li><a
+href="#part-0-self-study---interrupts-systick-and-the-ir-receiver-circuit"
+id="toc-part-0-self-study---interrupts-systick-and-the-ir-receiver-circuit">Part
+0: Self-Study - Interrupts, Systick, and the IR Receiver Circuit</a>
 <ul>
-<li><a href="#install-homebrew" id="toc-install-homebrew">Install
-Homebrew</a></li>
-<li><a href="#install-all-dependencies"
-id="toc-install-all-dependencies">Install All Dependencies</a></li>
+<li><a href="#checkpoint-objectives"
+id="toc-checkpoint-objectives">Checkpoint Objectives</a></li>
+<li><a href="#instructions" id="toc-instructions">Instructions</a></li>
+<li><a href="#interrupts" id="toc-interrupts">Interrupts</a></li>
+<li><a href="#systick-module" id="toc-systick-module">SysTick
+Module</a></li>
+</ul></li>
+<li><a href="#checkpoint-assessment"
+id="toc-checkpoint-assessment">Checkpoint Assessment</a></li>
+<li><a href="#part-i-ir-receiver-and-remote-setup"
+id="toc-part-i-ir-receiver-and-remote-setup">Part I: IR Receiver and
+Remote Setup</a>
+<ul>
+<li><a href="#ir-receiver-module-setup"
+id="toc-ir-receiver-module-setup">IR Receiver Module Setup</a></li>
+<li><a href="#tv-remote-configuration"
+id="toc-tv-remote-configuration">TV Remote Configuration</a></li>
+</ul></li>
+<li><a href="#part-ii-capturing-and-characterizing-ir-transmissions"
+id="toc-part-ii-capturing-and-characterizing-ir-transmissions">Part II:
+Capturing and Characterizing IR Transmissions</a>
+<ul>
+<li><a href="#lab-checkoff-task-1" id="toc-lab-checkoff-task-1"><em>Lab
+Checkoff Task 1</em></a></li>
+</ul></li>
+<li><a href="#part-iii-decoding-ir-transmissions--application-program"
+id="toc-part-iii-decoding-ir-transmissions--application-program">Part
+III: Decoding IR Transmissions / Application Program</a>
+<ul>
+<li><a href="#lab-checkoff-task-2" id="toc-lab-checkoff-task-2"><em>Lab
+Checkoff Task 2</em></a></li>
+</ul></li>
+<li><a href="#part-iv-board-to-board-texting-via-uart"
+id="toc-part-iv-board-to-board-texting-via-uart">Part IV: Board to Board
+Texting via UART</a>
+<ul>
+<li><a href="#lab-checkoff-task-3" id="toc-lab-checkoff-task-3"><em>Lab
+Checkoff Task 3</em></a></li>
 </ul></li>
 </ul>
 </nav>
-<h1 id="requirements">Requirements</h1>
-<p>The following software must be installed on your own computer to use
-it for project development. The software is already installed on the lab
-computers. OS-specific walkthroughs can be found further below.</p>
-<p>Note that to download some of the TI software, you will need to set
-up a TI account. Establish your own account to download the software
-instead of trying to get it in some other way.</p>
-<ol type="1">
-<li><p><strong>Code Composer Studio (CSS) IDE</strong> [latest]</p>
-<p><a
-href="https://www.ti.com/tool/CCSTUDIO">https://www.ti.com/tool/CCSTUDIO</a></p>
+<h2 id="overview">Overview</h2>
+<p>In this lab, you will use the Saleae logic analyzer and an IR
+receiver module to characterize the transmissions for buttons from an
+AT&amp;T IR universal remote control for a specific TV.</p>
+<p>Each group will be assigned a specific data format to decode that is
+associated with a unique TV code. You will then connect the CC3200
+Launchpad to the IR receiver module and write a program that uses
+interrupts to monitor the signal from it. By analyzing the series of
+pulses, your program will be able to determine which button was pressed
+on the IR remote control. You will then use your IR remote control to
+compose text messages using the <a
+href="https://en.wikipedia.org/wiki/Multi-tap">multi-tap text entry
+system</a> and send text messages back and forth between two CC3200
+LaunchPad boards via UART channel.</p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this lab, students should be able to:</p>
+<ul>
+<li>Explain and Implement GPIO-based interrupts</li>
+<li>Understand and Construct the IR receiver circuit</li>
+<li>Implement digital signal decoding in software</li>
+<li>Configure UART communication between 2 CC3200 boards</li>
+</ul>
+<h2 id="requirements-and-dependencies">Requirements and
+Dependencies</h2>
+<h3 id="hardware-requirements">Hardware Requirements</h3>
+<ul>
+<li>2 AT&amp;T S10-S3 Remotes</li>
+<li>2 100Ω resistor</li>
+<li>2 100μF capacitor</li>
+<li>2 Vishay TSOP31336/1236/31236</li>
+</ul>
+<div class="fig">
+  <img src="./media/ir-module-package.png" style="width:3in;height:auto" />
+  <span class="caption">IR Reciever Module Package</span>
+</div>
+
+<h3 id="lab-datasheets">Lab Datasheets</h3>
+<p>Refer to the following technical documents, which should be posted on
+the course website:</p>
+<ul>
+<li>CC3200 Technical Reference Manual</li>
+<li>CC3200 LaunchPad User Guide</li>
+<li>CC3200 LaunchPad Schematic</li>
+<li>CC3200 Datasheet</li>
+<li>IR Receiver Modules for Remote Control Systems</li>
+<li>Data Formats for IR Remote Control</li>
+<li>AT&amp;T IR Universal TV Remote User Guide</li>
+</ul>
+<!-- https://www.att.com/support_media/images/pdf/uverse/remote_control_user_guide.pdf -->
+
+<h2
+id="part-0-self-study---interrupts-systick-and-the-ir-receiver-circuit">Part
+0: Self-Study - Interrupts, Systick, and the IR Receiver Circuit</h2>
+<p>Interrupts are a foundational concept for programming embedded
+systems. As has been discussed in class, interrupts are extremely useful
+for managing I/O in an efficient and timely manner.</p>
+<p>In this lab, you will need to use GPIO interrupts, as well as the
+SysTick module to decode the TV remote signal. Hence, your self-study
+should focus on understanding <em>how interrupts work, how interrupt
+handlers should be written, concurrency and common concurrency bugs, as
+well as the SysTick module</em>. For understanding the IR receiver
+module, you should refer to the application circuit in its
+datasheet.</p>
+<p>Again, though we include a primer, you <em>will</em> need to go
+deeper in order to understand the topics on the checkpoint
+assessment.</p>
+<h3 id="checkpoint-objectives">Checkpoint Objectives</h3>
+<p>Students should be able to at minimum:</p>
+<ul>
+<li>recall how a GPIO interrupt can be triggered and what occurs in the
+firmware when that happens</li>
+<li>understand the function and applications of the
+<code>volatile</code> C keyword</li>
+<li>understand the Cortex-M SysTick peripheral</li>
+<li>recall the role of the resistor and capacitor in IR receiver
+connection circuit</li>
+</ul>
+<p>ideally:</p>
+<ul>
+<li>identify firmware bugs common in implementing interrupt
+handlers</li>
+<li>debug the IR receiver/MCU system</li>
+</ul>
+<h3 id="instructions">Instructions</h3>
+<p><strong>Conduct your own research on the SPI and I2C synchronous
+serial bus protocols. The instructions are as follows:</strong></p>
+<ul>
+<li><strong>Use a traditional search engine that does not rely on
+generative AI to facilitate your search.</strong> We recommend
+Google<sup>1</sup> and DuckDuckGo.</li>
+<li><strong>Take thorough digital notes on a shared editor such as
+Google Docs to record what you learn in your research.</strong> You may
+copy and paste. You will be allowed to refer to your digital notes
+during the checkpoint assessment.</li>
+<li><strong>You <em>must</em> attribute your sources in your digital
+notes by including a URL to the source at minimum</strong></li>
+<li><strong>Use the following subsections as a starting point, and keep
+the checkpoint objectives in mind so that your research stays
+on-topic.</strong></li>
+</ul>
+<p><strong>Tips</strong>:</p>
+<ul>
+<li>Make sure to look at/for examples with code to better understand how
+concepts are being used practically.</li>
+</ul>
 <blockquote>
-<p>Download and install the latest version of CCS. You will have access
-to the full-featured version (not code-size or time limited) when using
-the CC3200 LaunchPad.</p>
-</blockquote></li>
-<li><p><strong>CC3200 Software Development Kit</strong> [v1.5.0] and
-<strong>CC3200SDK-ServicePack</strong> [v1.0.1.15-2.15.0.1]</p>
-<p>(Windows-Only) <a
-href="https://www.ti.com/tool/cc3200sdk">https://www.ti.com/tool/cc3200sdk</a></p></li>
-<li><p><strong>TI SYSCONFIG Tool</strong> [latest]</p>
-<p><a
-href="https://www.ti.com/tool/SYSCONFIG">https://www.ti.com/tool/SYSCONFIG</a></p></li>
-<li><p><strong>CCS UniFlash</strong> [3.4.1] or
-<strong>cc3200tool</strong> [latest]</p>
-<p><a
-href="https://www.ti.com/tool/download/UNIFLASH/3.4.1">https://www.ti.com/tool/download/UNIFLASH/3.4.1</a>
-<a
-href="https://github.com/toniebox-reverse-engineering/cc3200tool">https://github.com/toniebox-reverse-engineering/cc3200tool</a></p></li>
-<li><p><strong>PuTTY</strong>, <strong>TeraTerm</strong>, or other
-Terminal emulator (Windows-Only) (we will use the
-<code>cc3200tool term</code> for mac)</p>
+<p>[1]: Avoid Google Bard by using Google Search without signing in, or
+by using incognito/private browsing mode.</p>
+</blockquote>
+<h3 id="interrupts">Interrupts</h3>
+<p>As already covered in class, <strong>interrupts</strong> allow a
+microcontroller to quickly respond to events without needing to poll the
+corresponding resource. An interrupt can be thought of as a specific
+hardware signal that is directly connected to the processor and
+associated with a particular resource. When signal changes, the
+processor knows that an event has occured for the corresponding
+resource, and will react to it by halting its current process and
+calling a special, designated function called an <strong>interrupt
+handler</strong> (a.k.a. <strong>Interrupt Service Routine</strong> or
+<strong>ISR</strong>). Designating a function as a given peripheral's
+interrupt handler is usually done in source code and is often
+facilitated by defining the handler, then passing it to the peripheral's
+initialization routine. Specific interfaces can vary.</p>
+<p>It is important to note that interrupts are called
+<em>asynchronously</em>, so firmware that makes use of interrupt
+handlers are considered <strong>concurrent</strong>. Concurrency, at a
+high level, is the idea that multiple programs can be executed in a
+manner that looks simultaneous, but may actually have
+<em>interleaved</em> semantics. Because of this, you cannot make
+assumptions about the state of global variables if those variables are
+accessed in multiple contexts.</p>
+<!-- Here are two useful articles that give more insight onto how interrupts
+work in general:
+
+<https://www.embeddedrelated.com/showarticle/469.php>
+
+<https://www.embeddedrelated.com/showarticle/472.php>
+ -->
+
+<h3 id="systick-module">SysTick Module</h3>
+<p>The <strong>SysTick</strong> peripheral module is a <em>system
+peripheral</em> of Cortex-M processors. It is essentially comprised of a
+counter register that is tied to the system clock, as well as a few
+status and configuration registers that hold the counter's reset value
+among other things.</p>
+<hr />
+<h2 id="checkpoint-assessment">Checkpoint Assessment</h2>
+<p>The associated checkpoint assessment is meant to affirm your
+fundamental understanding the topics covered in this lab. We built in
+the self study component because it has been well established that
+<em>proactive effort to learn material facilitates better
+understanding.</em> We have seen many students struggle later on in the
+course because they did not have enough time to firmly establish their
+understanding of foundational concepts, and by dedicating a portion of
+time in lab, we hope to alleviate this. A thorough understanding of
+foundational concepts will also help the rest of the lab go
+smoother.</p>
+<p><em>While it may feel like a quiz, remember that the checkpoints are
+not graded on accuracy, but on completion of the first 3 problems. You
+may run out of time on the last 3 problems, but you are only expected to
+give your best effort. These are exam-level problems and are good
+practice for the course's mini-exams, so please take the checkpoint
+assessment seriously to get the most out of it.</em></p>
+<hr />
+<h2 id="part-i-ir-receiver-and-remote-setup">Part I: IR Receiver and
+Remote Setup</h2>
+<h3 id="ir-receiver-module-setup">IR Receiver Module Setup</h3>
+<p>The figure below shows the connection schematic for the IR
+module.</p>
+<div class="fig">
+  <img src="./media/ir-module-circuit.jpeg"
+  style="width:6in;height:auto" />
+  <span class="caption">Application Circuit using the Vishay TSOP31336 
+  IR Receiver Module (taken from datasheet)</span>
+</div>
+
+<p>The module has three pins:</p>
+<ul>
+<li>power (Vs)</li>
+<li>ground (GND)</li>
+<li>output signal (OUT)</li>
+</ul>
+<p>The resistor and capacitor R<sub>1</sub> and C<sub>1</sub> are meant
+to filter noise that might occur on the power source and to protect
+against electrical over-stress (EOS) from power supply variations. Vs
+can be set to +3.3V and you can use R<sub>1</sub> = ~100Ω and
+C<sub>1</sub> = ~100μF. Because the IR receiver draws very little
+current, you can power it directly from your processor board.</p>
+<p><em>Before connecting the IR receiver to your processor</em>, you
+should wire it up and connect the OUT signal to an oscilloscope or the
+Saleae logic probe (See Part 2). You will first collect waveform data
+with the Saleae module, before you interface the device to your
+Launchpad. When you do interface the IR receiver to your processor, you
+will connect the OUT signal to an available GPIO input signal.</p>
+<p>You should read through the TSOP31336 IR Receiver Module datasheet to
+understand how the module works. As shown in the Block Diagram of the
+datasheet, the IR receiver has a band-pass filter, which has a center
+frequency of 36 kHz.</p>
 <blockquote>
-<p>You will use a terminal emulator program for serial input and output
-to you CC3200. You can use any terminal emulator program that you
-prefer. The lab machines will have PuTTY (available at <a
-href="http://www.putty.org/">http://www.putty.org/</a>) and Tera Term
-(available from <a
-href="https://ttssh2.osdn.jp/index.html.en">https://ttssh2.osdn.jp/index.html.en</a>).</p>
-</blockquote></li>
-<li><p><strong>Saleae Logic 2</strong> (Optional)</p>
-<p><a
-href="https://www.saleae.com/downloads/">https://www.saleae.com/downloads/</a></p>
+<p>Note 1: The TSOP31336 is able to suppress most of the interference
+from fluorescent lights. By using an oscilloscope, you can check if
+there are any spurious pulses on the OUT pin due to the fluorescent
+lights when there is no input signal from the remote. The lights in lab
+typically do not generate noise on the device, but outside of lab you
+may need to shield your receiver from the lights.</p>
+</blockquote>
 <blockquote>
-<p>This is software to use the Saleae Logic Analyzer. Between you and
-your lab partner, only one of you will need this software if you wish to
-use the logic analyzer for digital signal debugging, as you will be
-sharing one logic analyzer anyways.</p>
-</blockquote></li>
-</ol>
-<h1 id="windows-1011">Windows 10/11</h1>
-<h2 id="installing-ccs">Installing CCS</h2>
+<p>Note 2: When in the lab around other groups, you may need to shield
+your receiver from other groups’ IR remotes.</p>
+</blockquote>
+<h3 id="tv-remote-configuration">TV Remote Configuration</h3>
+<p>Your remote may have been previously configured so you should first
+reset the remote to factory defaults as follows:</p>
 <ol type="1">
-<li><p>Visit the <a href="https://www.ti.com/tool/download/CCSTUDIO">CCS
-Download Page</a>. Download the
-<code>Windows on-demand (online) installer for Code Composer Studio IDE (all features, devices)</code>
-for v12.5.0 by clicking on the link.</p>
+<li><p>Press and hold the <strong>AT&amp;T</strong> key along with the
+<strong>OK</strong> key. Hold both keys for one second, then release.
+All the mode keys should flash twice.</p></li>
+<li><p>Enter <strong>900</strong> using the numeric keypad. The AT&amp;T
+key will give a long flash to confirm success.</p></li>
+<li><p>If the remote control times-out before you complete the
+procedure, you will need to start over.</p></li>
+</ol>
+<p>By default, the backlight is set to ON. You should disable
+backlighting to extend battery life. To toggle the backlight setting
+from ON to OFF (or vice versa), use the following steps.</p>
+<ol type="1">
+<li><p>Press and hold the <strong>AT&amp;T</strong> key along with the
+<strong>OK</strong> key. Hold both keys for one second, then release.
+All the mode keys should flash twice.</p></li>
+<li><p>Enter <strong>991</strong> using the numeric keypad. The AT&amp;T
+key will give a long flash to confirm success.</p></li>
+</ol>
+<p>You will program a Device code for a specific TV, as assigned by your
+TA. A TV Device code is a 4-digit number that must start with “1”. The
+IR transmission encoding for a specific TV varies by manufacturer and TV
+model so there are different Device codes for different TVs.</p>
+<ol type="1">
+<li><p>Press and hold the <strong>TV</strong> key along with the
+<strong>OK</strong> key. Hold both keys for one second, then release.
+All the mode keys should flash twice to indicate that you are in the
+programming mode.</p></li>
+<li><p>Enter the 4-digit Device Code using the numeric keypad.</p></li>
+<li><p>The TV key will give a long flash to confirm success.</p></li>
+</ol>
+<p>Next you will configure the remote so that Channel and Volume
+commands always control one device, namely, the TV that you just
+specified. For channel control using the numeric keypad to be sent to
+your TV , perform the following steps:</p>
+<ol type="1">
+<li><p>Press and hold the <strong>AT&amp;T</strong> key along with the
+<strong>OK</strong> key. Hold both keys for one second, then release.
+All the mode keys should flash twice.</p></li>
+<li><p>Enter <strong>966</strong> using the numeric keypad. The AT&amp;T
+key will flash twice to confirm success.</p></li>
+<li><p>Press the <strong>TV</strong> key. The TV key will give a long
+flash to confirm success.</p></li>
+</ol>
+<p>For volume control commands to be sent to your TV, also perform the
+following steps:</p>
+<ol start="4" type="1">
+<li><p>Press and hold the <strong>AT&amp;T</strong> key along with the
+<strong>OK</strong> key. Hold both keys for one second, then release.
+All the mode keys should flash twice.</p></li>
+<li><p>Enter <strong>955</strong> using the numeric keypad. The AT&amp;T
+key will flash twice to confirm success.</p></li>
+<li><p>Press the <strong>TV</strong> key. The TV key will give a long
+flash to confirm success.</p></li>
+</ol>
+<h2 id="part-ii-capturing-and-characterizing-ir-transmissions">Part II:
+Capturing and Characterizing IR Transmissions</h2>
+<p>In this part, you will use the Saleae logic analyzer to capture and
+characterize the IR transmission format and timing for the remote
+control numeric buttons 0 through 9, the ‘DELETE’ button, and the
+‘ENTER’ button.</p>
+<blockquote>
+<p>Note: For some TV codes, the ‘ENTER’ button may not be used, in which
+case use the ‘MUTE’ button.</p>
+</blockquote>
+<p>Each button on the remote is encoded with a different pattern of
+varying length pulses. See the document <em>Data Formats for IR Remote
+Control</em> posted on Canvas under
+<code>Files -&gt; Datasheets -&gt; tv-remote-data-formats.pdf</code> for
+background on IR remote control transmission data formats and
+timing.</p>
+<p>Things to watch out for when setting up the logic analyzer:</p>
+<ul>
+<li><p>When plugging the wire harness into the logic analyzer pod,
+notice that the orientation is shown on the bottom of the pod.
+<strong>Make sure that the ground symbol on the bottom of the Saleae
+module is aligned with the grey wire.</strong> Black is data Channel 0,
+Brown is Channel 1 and so on (the colors follow the color code for
+resistor values). (This only applies to the analyzers with a
+single-strip wire harness)</p></li>
+<li><p>Our IR remote has a modulation carrier frequency of 36 kHz so a
+logic analyzer sampling frequency that is significantly above that (say
+500 kHz) will yield accurate timing measurements. For example, you can
+set the sampling options to: 1 M Samples @ 500 KHz to capture 2 seconds
+of data or 1 M Samples @ 1 MHz to capture 1 second of data</p></li>
+</ul>
+<p>To capture the IR transmissions:</p>
+<ul>
+<li><p>Once you have configured your IR remote, you can power the IR
+receiver module from a power supply set to +3.3V. The resistor and
+capacitor are recommended, but not essential. The OUT signal from the IR
+receiver would be connected to Channel 0 (Black wire) of the Saleae
+logic and the Ground probe (Gray wire) should be connected to the ground
+of the IR receiver. You will want to trigger on a falling edge on
+Channel 0. Press Start and then point the IR remote at the receiver and
+press a button. An example waveform is shown below.</p>
 <div class="fig">
-    <img src="./media/ccs-download-page.png" style="width:6in;height:auto" />
-    <span class="caption">CCS Download Page</span>
+  <img src="./media/ir-signal-example.png" style="width:7in;height:auto" />
+  <span class="caption">Sample Analyzer Output for IR Signal</span>
 </div>
 </li>
-<li><p>Right-Click on the downloaded archive and select <strong>Extract
-All</strong>. Then find the setup application
-<code>ccs_setup_12.5.0.x</code>. Right-Click on it and select
-<strong>Run as Administrator</strong>.</p></li>
-<li><p><strong>(License Agreement)</strong> Continue through the
-installer, and when prompted, accept the License Agreement.</p>
+<li><p>Use the logic analyzer to capture a transmission for each button
+in the target set. Use the <code>Options &gt; Save Screen Region</code>
+feature to save a picture of the IR transmission code for each button.
+Another method is to use the PrintScreen key on your computer
+(Alt-PrintScreen) and then paste the clipboard into an application such
+as MS Paint for cropping. You should collect at least 2 waveforms for
+each button to make sure that the waveform is consistent and repeatable.
+For example, sometimes a waveform will change slightly on alternating
+button presses so that the receiver knows when one button press is
+released and another starts.</p></li>
+</ul>
+<hr />
+<h3 id="lab-checkoff-task-1"><em>Lab Checkoff Task 1</em></h3>
+<p><strong>Use your set of timing waveforms to characterize the general
+format and general timing of your IR transmissions, as well as the
+specific binary data that is sent for each button in the target
+set.</strong> If possible, use the IR protocol documents mentioned above
+or other web resources to identify the protocol used for the IR
+transmission.</p>
+<blockquote>
+<p>Note 1: Some IR remote transmissions have an address and a data
+field. The address directs the data to a specific device (e.g., TV, DVD,
+VCR, etc.) and the data is essentially a key code which specifies which
+key (button) has been pressed. These key codes are sometimes called
+'commands' because the key code is mapped inside the receiving device to
+a specific operation, e.g., Fast Forward.</p>
+</blockquote>
+<blockquote>
+<p>Note 2: When you press a button on the remote control unit and hold
+it down, the entire code may be repeated as long as the button is held
+down or the code may be sent once followed by a simple ‘repeat’ pattern
+that is common to all buttons. The receiving device ignores the repeated
+data, allowing a user to easily select Channel 3, for example, instead
+of accidentally getting Channel 33 (or 333, etc.) by pressing a button
+too long. Sometimes the code will have a bit that toggles each time a
+button is pressed so that the receiver can distinguish separate button
+presses. For our application repeated data can be programmatically
+ignored by discarding the repeated data fields.</p>
+</blockquote>
+<hr />
+<h2 id="part-iii-decoding-ir-transmissions--application-program">Part
+III: Decoding IR Transmissions / Application Program</h2>
+<p>In this part, you will connect the microcontroller to the IR receiver
+module. The OUT signal of the receiver should be connected to an unused
+GPIO pin. Use the SysConfig tool to configure the pin you choose as a
+GPIO <em>input</em>.</p>
+<p>Your software will use interrupts to detect the rising and/or falling
+edges of the IR remote input signal and measure the pulse widths using
+of the microcontroller's SysTick module to determine the pulse widths.
+By analyzing the pattern of pulses, your program will determine which IR
+remote button was pressed.</p>
+<hr />
+<h3 id="lab-checkoff-task-2"><em>Lab Checkoff Task 2</em></h3>
+<p><strong>Write a program to decode the incoming IR signal to recognize
+when the user presses the following buttons and display them on the UART
+terminal</strong>:</p>
+<ul>
+<li>Numeric keys: <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code></li>
+<li><code>DELETE</code> key (<em>or</em> <code>LAST</code> key)</li>
+<li><code>ENTER</code> key (<em>or</em> <code>MUTE</code> key)</li>
+</ul>
+<p>Your system must distinguish these buttons from any other buttons on
+the IR remote. Your system does not need to identify other buttons, but
+it must recognize that they are not in the target button set. For
+example, pressing the LAST key should have no effect on your system
+(i.e. it should be ignored).</p>
+<blockquote>
+<p>Note: For some TV codes, the ‘ENTER’/’DELETE’ button may not produce
+a signal, in which case use the ‘MUTE’/’LAST’ button.</p>
+</blockquote>
+<p><strong>Demonstrate your program to your TA to receive checkoff. You
+may continue to the next part in the meantime.</strong></p>
+<hr />
+<h2 id="part-iv-board-to-board-texting-via-uart">Part IV: Board to Board
+Texting via UART</h2>
+<p>In this part, you will will develop a board-to-board messaging system
+using the TV remotes as a multi-tap text entry interface. You will need
+to connect your group’s two CC3200 LaunchPads over UART1 with UART
+interrupts enabled. Both launchpads will also be connected to their
+respective OLED displays to display messages being constructed and
+sent.</p>
+<p>The application specification is as follows:</p>
+<ul>
+<li><p>Both boards must be able to send messages to each other
+simultaneously, so UART must be configured with interrupts
+enabled</p></li>
+<li><p>The user should be able to input a text string via multi-tap on
+the remote</p>
+<ul>
+<li><p>Intermediate characters should be displayed as the user loops
+through the charaters</p>
+<p>Ex. to input <code>z</code>, the user should press the <code>9</code>
+button 4 times, and the display should loop through <code>w</code>,
+<code>x</code>, and <code>y</code> in the same position before reaching
+<code>z</code>.</p></li>
+<li><p>To confirm a character, you should implement a delay threshold,
+after which pressing the same button again will display a new character
+in the next position. If a different button is pressed, a new character
+should be immediately displayed in the next position.</p></li>
+</ul></li>
+<li><p>The user should be able to send the string to the connected
+launchpad by pressing <code>ENTER</code> (or <code>MUTE</code>)</p></li>
+<li><p>The user should be able to press <code>DELETE</code> to delete
+the previous character and subsequent inputs should take its
+place</p></li>
+<li><p>Incoming text messages should be displayed in the top half of the
+OLED display, while messages being written should be displayed on the
+bottom half.</p></li>
+</ul>
+<blockquote>
+<p>Note 1: UART1 is a second UART peripheral distinct from UART0, which
+the board uses for communication with the host by default, so you will
+need to configure a second UART peripheral on a different pair of pins
+using the SysConfig Tool.</p>
+</blockquote>
+<blockquote>
+<p>Note 2: In previous quarters, we have noticed that students tend to
+use <code>InitTerm</code> without understanding the underlying UART api
+calls used to configure a UART port. This leads to difficulties in
+understanding how to open an additional UART port.</p>
+<p>There are several other methods that need to be called in order to
+open the second UART port to allow interrupt-based communication. You
+should refer to the <a
+href="https://software-dl.ti.com/ecs/cc31xx/APIs/public/cc32xx_peripherals/latest/html/index.html">SDK
+Documentation</a> to better understand what needs to be done here.</p>
+</blockquote>
+<hr />
+<h3 id="lab-checkoff-task-3"><em>Lab Checkoff Task 3</em></h3>
+<p><strong>Demonstrate your working application to your TA for
+verification. Also capture a UART transmission from UART1 and use the
+logic analyzer to show your data being sent.</strong> An example is
+shown below.</p>
 <div class="fig">
-    <img src="./media/ccs1250-install-pt1.png" style="width:6in;height:auto" />
-    <span class="caption">CCS License Agreement</span>
+  <img src="./media/uart-example.png" style="width:7in;height:auto" />
+  <span class="caption">Sample Analyzer Output for UART Signal</span>
 </div>
-</li>
-<li><p><strong>(Install Directory)</strong> Choose a location to install
-CCS. It should be somewhere on your <code>C:\</code> drive and easy to
-remember, as you will install the other tools to the same directory. (We
-recommend <code>C:\Users\&lt;user&gt;\ti\</code>)</p>
-<div class="fig">
-    <img src="./media/ccs1250-install-pt2.png" style="width:6in;height:auto" />
-    <span class="caption">Select CCS Install Directory</span>
-</div>
-</li>
-<li><p><strong>(Installation Type)</strong> Select
-<code>Custom Installation</code></p>
-<div class="fig">
-    <img src="./media/ccs1250-install-pt3.png" style="width:6in;height:auto" />
-    <span class="caption">Installation Type</span>
-</div>
-</li>
-<li><p><strong>(Select Components)</strong> Check the box corresponding
-to <code>SimpleLink™* Wi-Fi® CC32xx Wireless MCUs</code>. You will not
-need any other components for this course.</p>
-<div class="fig">
-    <img src="./media/ccs1250-install-pt4.png" style="width:6in;height:auto" />
-    <span class="caption">Select Components</span>
-</div>
-</li>
-<li><p><strong>(Install Debug Probes)</strong> We will not be using any
-of the other debug probes beyond the default. Leave the boxes unchecked
-and continue.</p></li>
-<li><p><strong>(Finish Installation)</strong> Continue through the rest
-of the installer until the process is complete.</p></li>
-</ol>
-<h2 id="installing-cc3200-support-files">Installing CC3200 Support
-Files</h2>
-<ol type="1">
-<li><p>Visit the <a
-href="https://www.ti.com/tool/download/CC3200SDK">SDK Download Page</a>.
-Download most recent version of the
-<code>Windows Installer for CC3200SDK</code> and the
-<code>Service Pack Installer</code>. Both of these require a TI Account.
-When prompted, indicate "Civil Use", agree to the License Agreement, and
-continue.</p>
-<div class="fig">
-    <img src="./media/cc3200sdk-download-page.png" style="width:6in;height:auto" />
-    <span class="caption">Select Components</span>
-</div>
-</li>
-<li><p>Run both of the downloaded installers. We recommend installing
-them to the same location as CCS. Continue through the windows until
-finished.</p></li>
-</ol>
-<h2 id="installing-ti-sysconfig">Installing TI SysConfig</h2>
-<ol type="1">
-<li><p>Visit the <a
-href="https://www.ti.com/tool/download/SYSCONFIG">SysConfig Download
-Page</a>. Download the
-<code>Windows Installer for SysConfig</code>.</p></li>
-<li><p>Run the <code>sysconfig-x.x.x_x-setup</code> application.
-Continue through all the windows. When prompted, select the install
-directory, then continue until installation complete.</p></li>
-</ol>
-<h2 id="installing-uniflash-v341">Installing UniFlash v3.4.1</h2>
-<p><strong>Note: It must be version 3.4.1 or earlier, as no later
-versions are compatible with the CC3200</strong></p>
-<ol type="1">
-<li><p>Visit the <a
-href="https://www.ti.com/tool/download/UNIFLASH/3.4.1">UniFlash Download
-Page</a>. Download the
-<code>Windows Installer for UniFlash</code>.</p></li>
-<li><p>Right-Click on the downloaded archive and select <strong>Extract
-All</strong>. Then find the setup application
-<code>uniflash_setup_3.4.1.x</code>. Right-Click on it and select
-<strong>Run as Administrator</strong>.</p></li>
-<li><p><strong>(Select Components)</strong> Agree to any license
-agreements, and continue through the installer. Choose your install
-directory, and when you reach the "Select Components" page, choose
-<code>Connectivity -&gt; SimpleLink WiFi  CC31xx/CC32xx</code>, as shown
-below. Then continue through the rest of the installer. <strong>If
-prompted to install FTDI drivers, click <em>Yes</em></strong>.</p>
-<div class="fig">
-    <img src="./media/ccs-uniflash-install.png" style="width:6in;height:auto" />
-    <span class="caption">Select Components</span>
-</div>
-</li>
-</ol>
-<h2 id="installing-putty">Installing PuTTY</h2>
-<ol type="1">
-<li><p>We recommend PuTTY over TeraTerm, though it doesn't matter too
-much. To install PuTTY, if you have Chocolatey, you can run:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="an">choco install putty</span></span></code></pre></div>
-<p>from an Administrator shell. Otherwise, you can install from the
-Microsoft Store, or you can install manually.</p></li>
-<li><p><strong>(Manual Install)</strong> Visit the <a
-href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY
-Download Page</a> and download the Installer for your machine's
-architecture. Then run it and follow the prompts. (You can use
-defaults)</p></li>
-</ol>
-<h2 id="installing-saleae-logic-2">Installing Saleae Logic 2</h2>
-<ol type="1">
-<li>Follow the Installation instructions on Saleae's Support website,
-found <a
-href="https://support.saleae.com/logic-software/sw-installation#windows-instructions">here</a></li>
-</ol>
-<h1 id="macos-catalina-or-later">MacOS Catalina or Later</h1>
-<p>(Tested on Sonoma, Apple M1 Pro)</p>
-<p>The labs can be done on macOS, but will require extensive use of the
-Terminal, as cc3200tool is a python command line tool. We have had to
-modify it to some extent, so for things to work properly, you will need
-to setup a <a href="https://github.com/conda-forge/miniforge">conda</a>
-environment. If you are not familiar with navigating the Terminal, you
-can refer to <a
-href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line">this
-crash course on the command line</a> as well as this <a
-href="https://github.com/0nn0/terminal-mac-cheatsheet">neat cheat
-sheet</a> of common commands.</p>
-<p>We will go through the full installation process using <a
-href="https://brew.sh/">Homebrew</a>, as this will greatly ease the
-installation process.</p>
-<h2 id="install-homebrew">Install Homebrew</h2>
-<p>Homebrew is a package manager for macOS, similar to Chocolatey on
-Windows and apt in Ubuntu. It can be used to install and uninstall most
-libraries, tools, and applications cleanly and easily.</p>
-<ol type="1">
-<li><p>Open <code>/Applications/Utilities/Terminal.app</code></p></li>
-<li><p>Copy and paste (without the <code>$</code>) the following into
-the terminal prompt:</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ /bin/bash<span class="at"> -c</span> &quot;$(curl<span class="at"> -fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span></code></pre></div>
-<p>Agree as necessary to continue the installation until the script
-finishes. (Allow homebrew to be install to the default path
-prefixes)</p></li>
-<li><p>After homebrew finishes installing, close and reopen your
-Terminal window. Then add the <code>ucd-eec172</code> <a
-href="https://docs.brew.sh/Taps">tap</a>:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> tap rchtsang/ucd-eec172</span></code></pre></div></li>
-</ol>
-<h2 id="install-all-dependencies">Install All Dependencies</h2>
-<ol type="1">
-<li><p><strong><code>conda</code>/<code>mamba</code></strong>.</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> mambaforge</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> init &quot;$(basename &quot;${SHELL}&quot;)&quot;</span></code></pre></div>
-<p><strong>Close and reopen your Terminal after these commands
-complete.</strong></p></li>
-<li><p><strong>Code Composer Studio and TI SysConfig</strong>. <em>This
-requires that you have added <code>rchtsang/ucd-eec172</code> as a Tap.
-Installs both to /Applications/TI/</em></p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> ucd-eec172-ccs</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> ucd-eec172-sysconfig</span></code></pre></div></li>
-<li><p><strong>CC3200 Support Files</strong>. <em>Install sdk and
-supportpack to <code>/Applications/TI/lib</code></em>.</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> ucd-eec172-cc3200-support</span></code></pre></div></li>
-<li><p><strong>cc3200tool</strong>. This one is a bit more involved. In
-Terminal, navigate to your desired install directory, and run the
-following commands.</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do"># uncomment and run if you do not have git</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do"># brew install git</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$ git</span> clone https://github.com/rchtsang/cc3200tool.git</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cd</span> cc3200tool</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">$ mamba</span> env create<span class="at"> -n</span> cc3200<span class="at"> -f</span> environment.yml</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">$ conda</span> activate cc3200</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">$ pip</span> install<span class="at"> -e</span> .</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">$ cc3200tool</span><span class="at"> -h</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do"># conda deactivate # to deactivate the virtual environment</span></span></code></pre></div>
-<p>If the <code>cc3200tool</code> is installed successfully, you should
-see a help string get printed to the output.</p></li>
-<li><p><strong>Saleae Logic 2</strong>.</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode console"><code class="sourceCode simpleconsole"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$ brew</span> install<span class="at"> --cask</span> saleae-logic</span></code></pre></div>
-<p>Note any caveats and follow any additional instructions if brew
-prompts you.</p></li>
-</ol>
+
+<hr />
 </article>
 </html>
