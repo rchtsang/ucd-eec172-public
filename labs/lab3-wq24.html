@@ -1219,11 +1219,20 @@ Dependencies</h2>
 <li>2 AT&amp;T S10-S3 Remotes</li>
 <li>2 100Ω resistor</li>
 <li>2 100μF capacitor</li>
-<li>2 Vishay TSOP31336/1236/31236</li>
+<li>2 Vishay TSOP311xx/313xx/315xx or TSOP381xx/383xx/385xx</li>
 </ul>
 <div class="fig">
-  <img src="./media/ir-module-package.png" style="width:3in;height:auto" />
-  <span class="caption">IR Reciever Module Package</span>
+  <div style='display: inline-block; vertical-align: bottom;'>
+    <img src="./media/ir-module-package.png" style="width:3in;height:auto" />
+    <span class="caption">TSOP311xx/313xx/315xx Module Package</span>
+  </div>
+  <div style='display: inline-block; vertical-align: bottom;'>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <div style='display: inline-block; vertical-align: bottom;'>
+    <img src="./media/ir-module-package-381.png" style="width:3in;height:auto" />
+    <span class="caption">TSOP381xx/383xx/385xx Module Package</span>
+  </div>
 </div>
 
 <h3 id="lab-datasheets">Lab Datasheets</h3>
@@ -1362,8 +1371,8 @@ module.</p>
 <div class="fig">
   <img src="./media/ir-module-circuit.jpeg"
   style="width:6in;height:auto" />
-  <span class="caption">Application Circuit using the Vishay TSOP31336 
-  IR Receiver Module (taken from datasheet)</span>
+  <span class="caption">Application Circuit using the Vishay 
+  TSOP313xx/TSOP381xx IR Receiver Module (taken from datasheet)</span>
 </div>
 
 <p>The module has three pins:</p>
@@ -1372,6 +1381,8 @@ module.</p>
 <li>ground (GND)</li>
 <li>output signal (OUT)</li>
 </ul>
+<p><strong>NOTE: Different IR modules have different pinouts!!</strong>
+Double check which IR module you have before making connections.</p>
 <p>The resistor and capacitor R<sub>1</sub> and C<sub>1</sub> are meant
 to filter noise that might occur on the power source and to protect
 against electrical over-stress (EOS) from power supply variations. Vs
