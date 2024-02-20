@@ -1207,10 +1207,10 @@ id="toc-software-requirements">Software Requirements</a></li>
 </ul></li>
 <li><a href="#part-0-self-study---aws-iot-and-rest-apis"
 id="toc-part-0-self-study---aws-iot-and-rest-apis">Part 0: Self-Study -
-AWS IoT and REST APIs</a></li>
-<li><a href="#checkpoint-objectives"
-id="toc-checkpoint-objectives">Checkpoint Objectives</a>
+AWS IoT and REST APIs</a>
 <ul>
+<li><a href="#checkpoint-objectives"
+id="toc-checkpoint-objectives">Checkpoint Objectives</a></li>
 <li><a href="#instructions" id="toc-instructions">Instructions</a></li>
 <li><a href="#rest-apis" id="toc-rest-apis">REST APIs</a></li>
 <li><a href="#aws-iot" id="toc-aws-iot">AWS IoT</a></li>
@@ -1223,7 +1223,7 @@ Connecting to AWS and Updating the Device Shadow</a>
 <ul>
 <li><a href="#setting-up-an-amazon-aws-account"
 id="toc-setting-up-an-amazon-aws-account">Setting up an Amazon AWS
-account**</a></li>
+account</a></li>
 <li><a href="#setting-up-a-device-thingshadow"
 id="toc-setting-up-a-device-thingshadow">Setting Up a Device
 Thing/Shadow</a></li>
@@ -1248,7 +1248,7 @@ to Send a Message to Email</a>
 <li><a href="#creating-an-sns-topic"
 id="toc-creating-an-sns-topic">Creating an SNS Topic</a></li>
 <li><a href="#creating-an-iot-rule"
-id="toc-creating-an-iot-rule">Creating an IoT Rule:</a></li>
+id="toc-creating-an-iot-rule">Creating an IoT Rule</a></li>
 <li><a href="#lab-checkoff-task-2" id="toc-lab-checkoff-task-2"><em>Lab
 Checkoff Task 2</em></a></li>
 </ul></li>
@@ -1319,7 +1319,7 @@ and the online service.</p>
 <p>As per usual, we provide some light background on both topics, but it
 is critical that you conduct your own research to solidify your
 understanding for the checkpoint assessment.</p>
-<h2 id="checkpoint-objectives">Checkpoint Objectives</h2>
+<h3 id="checkpoint-objectives">Checkpoint Objectives</h3>
 <p>Students should be able to at minimum:</p>
 <ul>
 <li>identify the interaction model between AWS Device Shadows, Services,
@@ -1446,7 +1446,7 @@ exactly as they appear to be in the image, do your best to locate them
 on your own.</p>
 </blockquote>
 <h3 id="setting-up-an-amazon-aws-account">Setting up an Amazon AWS
-account**</h3>
+account</h3>
 <p>For this lab, you will need to setup an Amazon AWS account and get a
 basic understanding of AWS. One person per team will need to create an
 AWS account that can be shared for completing this lab. Notify a TA
@@ -1945,7 +1945,7 @@ will receive the messages. (Figure 13)</p>
 button on top of the page to manually send a text message from the AWS
 Console to your email (use RAW format for now).</p></li>
 </ol>
-<h3 id="creating-an-iot-rule">Creating an IoT Rule:</h3>
+<h3 id="creating-an-iot-rule">Creating an IoT Rule</h3>
 <p>The next step is to create an IoT Rule that will trigger when you
 push updates to your shadow device. Earlier in the lab, we updated our
 device shadow (state) via the REST api. When our device shadow is
@@ -1996,7 +1996,7 @@ formatting using JSON message format SNS action.</p>
 <li>To understand the JSON message format, go back to the SNS topic you
 made, click the <em>Publish a topic</em> button, and experiment with the
 <code>JSON message generator</code> to find the appropriate syntax.</li>
-<li>Determin how you will need to modify your SQL statement to "clean
+<li>Determine how you will need to modify your SQL statement to "clean
 up" your message. <a
 href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">More
 on SQL-like formatting</a>.</li>
